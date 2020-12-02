@@ -35,7 +35,7 @@ pipeline {
             }      
         stage ('docker image run') {
             steps{
-            bat 'docker run -p 8080:8080 mywebapp/app:1.0.0'
+            bat 'docker run -p 8080:8081 mywebapp/app:1.0.0'
                 }
             }      
         }
