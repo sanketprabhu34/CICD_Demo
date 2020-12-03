@@ -38,5 +38,13 @@ pipeline {
             bat 'docker run -d -p 8080:8080 demo/app:1.0'
                 }
             }      
+        
+        stage ('docker image push') {
+            steps{
+                withCredentials([string(credentialsId: 'dockerPwd', variable: 'dockerHubPwd')]){
+                    bat "docker login -u sankpra34 -p ${dockerHubPwd}"
+                }
+                }
+            }      
         }
 }
