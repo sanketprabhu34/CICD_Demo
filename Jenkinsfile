@@ -35,8 +35,8 @@ pipeline {
             }      
         stage ('docker image run') {
             steps{
-                bat 'echo "Docker run" '
-            //bat 'docker run -d -p 8080:8080 demo/app:1.0'
+               bat 'echo "Docker run" '
+            bat 'docker run -d -p 8080:8080 demo/app:1.0'
                 }
             }      
         
@@ -50,14 +50,5 @@ pipeline {
                 }
             }
         
-        stage ('dev server run') {
-            
-            steps{
-                
-                sshagent(['dev-server']) {
-                    sh 'ssh -o StrictHostKeyChecking=no ec2-user@3.12.71.78 docker run -d -p 8080:8080 sankpra34/demoapp:latest'
-                }
-                }
-            }      
         }
 }
