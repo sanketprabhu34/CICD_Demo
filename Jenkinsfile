@@ -1,6 +1,5 @@
 pipeline {
     agent any
-    def dockerRun= 'docker run -d -p 8080:8080 sankpra34/demoapp:latest'
 
     stages {
         stage ('Compile Stage') {
@@ -55,7 +54,7 @@ pipeline {
             steps{
                 
                 sshagent(['dev-server']){
-                    bat "ssh -o StrictHostKeyChecking=no ec2-user@3.12.71.78 ${dockerRun}"
+                    bat 'ssh -o StrictHostKeyChecking=no ec2-user@3.12.71.78 docker run -d -p 8080:8080 sankpra34/demoapp:latest'
                 }
                 }
             }      
