@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    def dockerRun= 'docker run -d -p 8080:8080 sankpra34/demoapp:latest'
 
     stages {
         stage ('Compile Stage') {
@@ -50,7 +51,7 @@ pipeline {
             }
         
         stage ('dev server run') {
-            def dockerRun= 'docker run -d -p 8080:8080 sankpra34/demoapp:latest'
+            
             steps{
                 
                 sshagent(['dev-server']){
