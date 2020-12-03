@@ -35,6 +35,7 @@ pipeline {
             }      
         stage ('docker image run') {
             steps{
+                bat 'echo "Docker run" '
             //bat 'docker run -d -p 8080:8080 demo/app:1.0'
                 }
             }      
