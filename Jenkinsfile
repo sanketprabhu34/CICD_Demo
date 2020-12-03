@@ -54,7 +54,7 @@ pipeline {
             
             steps{
                 
-                ssh-agent(['dev-server']) {
+                sshagent(['dev-server']) {
                     bat 'ssh -o StrictHostKeyChecking=no ec2-user@3.12.71.78 docker run -d -p 8080:8080 sankpra34/demoapp:latest'
                 }
                 }
